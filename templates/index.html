@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>欢迎来到音乐漂流瓶</h1>
+    <div class="bottle-image">
+        <img src="{{ url_for('static', filename='bottle.jpg') }}" alt="漂流瓶" style="max-width: 300px; height: auto;" />
+    </div>
+
     <div>
         <button onclick="window.location.href='/pick_music'">捡瓶子</button>
         <button onclick="window.location.href='/send_bottle_form'">丢瓶子</button>
