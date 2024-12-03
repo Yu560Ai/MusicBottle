@@ -1,23 +1,32 @@
+/* Style for the Title */
+.hero-container h1 {
+    font-size: 3rem;  /* Adjust the font size */
+    font-weight: bold;  /* Make it bold */
+    color: #fff;  /* White color for the title */
+    margin-bottom: 50px;  /* Add space below the title */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  /* Optional: Add shadow effect */
+}
+
+/* Other existing styles */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
-/* Background image container */
 .hero-container {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url('/static/bottle.jpg');  /* Correct path to image in /static */
+    background-image: url('/static/bottle.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-/* Button container */
 .button-container {
     display: flex;
     flex-direction: column;
@@ -38,4 +47,66 @@ body {
 .button-container button:hover {
     background-color: rgba(255, 255, 255, 0.9);
     transform: scale(1.1);
+}
+
+/* Popup styles */
+.popup {
+    display: none;  /* Hidden by default */
+    position: fixed;
+    top: 50%;  /* Position vertically in the middle */
+    left: 50%;  /* Position horizontally in the middle */
+    transform: translate(-50%, -50%);  /* Adjust the position to fully center the popup */
+    width: 90%;  /* Increased width */
+    max-width: 600px;  /* Increased max-width */
+    background-color: rgba(0, 0, 0, 0.7);  /* Semi-transparent black background */
+    z-index: 1000;  /* Ensure it sits on top of other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;  /* Added rounded corners for outer popup */
+}
+
+.popup-content {
+    background-color: rgba(255, 255, 255, 0.9);  /* Slightly higher opacity for better visibility */
+    border-radius: 12px;  /* Slightly rounded corners */
+    padding: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;  /* Increased max-width for content */
+}
+
+.popup-content h2 {
+    font-size: 1.8rem;  /* Larger title size */
+    margin-bottom: 20px;
+    color: #333;  /* Dark text for better contrast */
+}
+
+.popup-content p {
+    font-size: 1.4rem;  /* Larger text for better readability */
+    margin-bottom: 20px;
+    color: #555;  /* Softer color for text */
+}
+
+.popup-content button {
+    margin: 10px;
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #B0C4DE;  /* Light steel blue for a calm, harmonious look */
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+.popup-content button:hover {
+    background-color: #A0B9D3;  /* Slightly darker shade for hover effect */
+}
+
+.close {
+    font-size: 2rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #888;  /* Soft close button color */
 }

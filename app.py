@@ -8,14 +8,24 @@ app = Flask(__name__)
 with open('music_data.json', 'r', encoding='utf-8') as f:
     music_data = json.load(f)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')  # Render the index page
 
+# @app.route('/pick_music/', methods=['GET'])
+# def pick_bottle():
+#     song = random.choice(music_data)  # Pick a random song
+#     return render_template('pick_music.html', song=song)  # Render the pick_music page
+
 @app.route('/pick_music/', methods=['GET'])
 def pick_bottle():
     song = random.choice(music_data)  # Pick a random song
-    return render_template('pick_music.html', song=song)  # Render the pick_music page
+    print(song)  # 在终端打印返回的歌曲信息
+    return jsonify(song)  # Return the song data as JSON
+
+
+
 
 @app.route('/send_bottle/', methods=['POST'])
 def send_bottle():
@@ -32,7 +42,7 @@ def send_bottle():
 
     # 检查是否已存在该歌曲（根据歌曲名和歌手名组合来判断）
     if any(song['song_name'] == song_name and song['artist_name'] == artist_name for song in music_data):
-        return render_template('success.html')  # Render the form page
+        return render_template('error.html', error_message="这首歌已经存在，请勿重复添加。")
 
     music_data.append({"song_name": song_name, "artist_name": artist_name})
     
@@ -47,6 +57,10 @@ def send_bottle():
 def send_bottle_form():
     return render_template('send_bottle_form.html')  # Render the form page
 
+
+# Print out all routes in the Flask app
+for rule in app.url_map.iter_rules():
+    print(rule)
 
 if __name__ == "__main__":
     app.run(debug=True)

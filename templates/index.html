@@ -1,19 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Bottle</title>
-    <!-- Link to the external stylesheet -->
-    <link rel="stylesheet" href="/static/styles.css">
+    <title>音乐漂流瓶</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="hero-container">
-        <div class="button-container">
-            <button onclick="window.location.href='/send_bottle_form'">丢瓶子</button>
-            <button onclick="window.location.href='/pick_music'">捡瓶子</button>
-            <button onclick="window.location.href='/help'">帮助</button>
+    <!-- Outer container with a border -->
+    <div class="outer-container">
+        <div class="hero-container">
+            <h1>欢迎来到音乐漂流瓶！</h1>
+            <div class="button-container">
+                <button onclick="window.location.href='/send_bottle_form'">丢瓶子</button>
+                <button onclick="pickBottle()">捡瓶子</button>
+                <button>帮助</button>
+            </div>
+
+            <!-- 弹窗 -->
+            <div id="popup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup()">&times;</span>
+                    <h2>捡到一个瓶子！</h2>
+                    <p id="song-info"></p>
+                    <button onclick="window.location.href='/send_bottle_form'">丢瓶子</button>
+                    <button onclick="window.location.href='/'">返回主页</button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function pickBottle() {
+            // Make an AJAX GET request to get the song data
+            $.get("/pick_music", function(data) {
+                // Dynamically update the song information in the popup
+                const songInfo = `${data.song_name} - ${data.artist_name}`;
+                document.getElementById("song-info").innerText = `歌曲: ${songInfo}`;
+
+                // Show the popup
+                document.getElementById("popup").style.display = "block";
+            });
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
 </body>
 </html>
