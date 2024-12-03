@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>音乐漂流瓶</title>
+    <title>Music Bottle</title>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <h1>欢迎来到音乐漂流瓶</h1>
-    <div class="bottle-image">
-        <img src="{{ url_for('static', filename='bottle.jpg') }}" alt="漂流瓶" style="max-width: 300px; height: auto;" />
-    </div>
-
-    <div>
-        <button onclick="window.location.href='/pick_music'">捡瓶子</button>
-        <button onclick="window.location.href='/send_bottle_form'">丢瓶子</button>
-        <button>帮助</button>
+    <div class="hero-container">
+        <div class="button-container">
+            <button onclick="window.location.href='/send_bottle_form'">丢瓶子</button>
+            <button onclick="window.location.href='/pick_music'">捡瓶子</button>
+            <button onclick="window.location.href='/help'">帮助</button>
+        </div>
     </div>
 </body>
 </html>
