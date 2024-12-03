@@ -25,8 +25,6 @@ def pick_bottle():
     return jsonify(song)  # Return the song data as JSON
 
 
-
-
 @app.route('/send_bottle/', methods=['POST'])
 def send_bottle():
     song_name = request.form['song_name']

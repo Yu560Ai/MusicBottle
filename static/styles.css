@@ -7,13 +7,37 @@
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  /* Optional: Add shadow effect */
 }
 
+/* 给外部容器添加边框 */
+.outer-container {
+    border: 5px solid #ccc;  /* 设置 5px 宽的边框 */
+    border-radius: 15px;      /* 设置圆角边框，调整数值可以控制圆角效果 */
+    padding: 20px;            /* 给容器内的内容添加一些空白 */
+    margin: 20px auto;        /* 容器居中显示，并且添加上下的外边距 */
+    max-width: 1200px;        /* 设置最大宽度，避免页面太宽 */
+    background-color: #fff;   /* 设置容器背景颜色，避免透明 */
+    box-sizing: border-box;   /* 确保边框和内边距包含在元素宽度内 */
+    min-height: calc(100vh - 40px);  /* 确保外部容器的高度填满视口，减去边距和内边距的总和 */
+    overflow-y: auto;         /* 启用垂直滚动条，确保内容可以滚动 */
+}
+
+
 /* Other existing styles */
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+} */
+/* 让body至少填满视口 */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    height: 100%;        /* 确保页面的高度填满整个视口 */
+    display: block;      /* 确保body是块级元素，避免flex布局带来的问题 */
 }
 
+
+/* 为hero-container添加基本的布局 */
 .hero-container {
     position: relative;
     width: 100%;
