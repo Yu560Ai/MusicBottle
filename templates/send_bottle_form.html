@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丢瓶子</title>
+</head>
+<body>
+    <h1>请输入歌曲和歌手信息</h1>
+    <form action="/send_bottle" method="POST">
+        <label for="song_name">歌曲名:</label>
+        <input type="text" id="song_name" name="song_name" required><br><br>
+    
+        <label for="artist_name">歌手名:</label>
+        <input type="text" id="artist_name" name="artist_name" required><br><br>
+    
+        <button type="submit">丢出瓶子</button>
+    </form>
+    
+    
+
+    <br>
+    <button onclick="window.location.href='/'">返回主页</button>
+</body>
+</html>
