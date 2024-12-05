@@ -1,4 +1,4 @@
-/* Style for the Title */
+/* Title styles */
 .hero-container h1 {
     font-size: 3rem;  /* Adjust the font size */
     font-weight: bold;  /* Make it bold */
@@ -7,37 +7,29 @@
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  /* Optional: Add shadow effect */
 }
 
-/* 给外部容器添加边框 */
+/* Outer container styles */
 .outer-container {
-    border: 5px solid #ccc;  /* 设置 5px 宽的边框 */
-    border-radius: 15px;      /* 设置圆角边框，调整数值可以控制圆角效果 */
-    padding: 20px;            /* 给容器内的内容添加一些空白 */
-    margin: 20px auto;        /* 容器居中显示，并且添加上下的外边距 */
-    max-width: 1200px;        /* 设置最大宽度，避免页面太宽 */
-    background-color: #fff;   /* 设置容器背景颜色，避免透明 */
-    box-sizing: border-box;   /* 确保边框和内边距包含在元素宽度内 */
-    min-height: calc(100vh - 40px);  /* 确保外部容器的高度填满视口，减去边距和内边距的总和 */
-    overflow-y: auto;         /* 启用垂直滚动条，确保内容可以滚动 */
+    border: 5px solid #ccc;  /* Border width */
+    border-radius: 15px;      /* Rounded corners */
+    padding: 20px;            /* Inner spacing */
+    margin: 20px auto;        /* Center the container and add margin */
+    max-width: 1200px;        /* Maximum width */
+    background-color: #fff;   /* White background */
+    box-sizing: border-box;   /* Include padding and border in width calculation */
+    min-height: calc(100vh - 40px);  /* Ensure it fills the viewport minus margins */
+    overflow-y: auto;         /* Enable scrolling for content */
 }
 
-
-/* Other existing styles */
-/* body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-} */
-/* 让body至少填满视口 */
+/* General body styling */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    height: 100%;        /* 确保页面的高度填满整个视口 */
-    display: block;      /* 确保body是块级元素，避免flex布局带来的问题 */
+    height: 100%;
+    display: block;
 }
 
-
-/* 为hero-container添加基本的布局 */
+/* Hero container background */
 .hero-container {
     position: relative;
     width: 100%;
@@ -51,6 +43,7 @@ body {
     text-align: center;
 }
 
+/* Button container and buttons */
 .button-container {
     display: flex;
     flex-direction: column;
@@ -61,54 +54,61 @@ body {
 .button-container button {
     padding: 15px 25px;
     font-size: 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
+    background-color: rgba(255, 255, 255, 0.7); /* Original style */
+    color: #333;  /* Soft dark text color for contrast */
+    border: 2px solid rgba(255, 255, 255, 0.7); /* Match the button's background */
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
+    transition: transform 0.2s, background-color 0.3s, color 0.3s;
 }
 
 .button-container button:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly brighter hover background */
+    color: #000;  /* Darker text on hover */
+    transform: scale(1.05);  /* Subtle scale effect */
+}
+
+.button-container button:active {
+    background-color: rgba(200, 200, 200, 0.9); /* Softer pressed effect */
+    color: #222; /* Slightly darker text when pressed */
 }
 
 /* Popup styles */
 .popup {
     display: none;  /* Hidden by default */
     position: fixed;
-    top: 50%;  /* Position vertically in the middle */
-    left: 50%;  /* Position horizontally in the middle */
-    transform: translate(-50%, -50%);  /* Adjust the position to fully center the popup */
-    width: 90%;  /* Increased width */
-    max-width: 600px;  /* Increased max-width */
-    background-color: rgba(0, 0, 0, 0.7);  /* Semi-transparent black background */
-    z-index: 1000;  /* Ensure it sits on top of other content */
+    top: 50%;  /* Vertically centered */
+    left: 50%;  /* Horizontally centered */
+    transform: translate(-50%, -50%);  /* Adjust position */
+    width: 90%;  /* Flexible width */
+    max-width: 600px;  /* Limit maximum width */
+    background-color: rgba(0, 0, 0, 0.7);  /* Semi-transparent black */
+    z-index: 1000;  /* Above other content */
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;  /* Added rounded corners for outer popup */
+    border-radius: 12px;  /* Rounded corners */
 }
 
 .popup-content {
-    background-color: rgba(255, 255, 255, 0.9);  /* Slightly higher opacity for better visibility */
-    border-radius: 12px;  /* Slightly rounded corners */
+    background-color: rgba(255, 255, 255, 0.9);  /* Slightly transparent white */
+    border-radius: 12px;  /* Rounded corners */
     padding: 25px;
     text-align: center;
     width: 100%;
-    max-width: 600px;  /* Increased max-width for content */
+    max-width: 600px;
 }
 
 .popup-content h2 {
-    font-size: 1.8rem;  /* Larger title size */
+    font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #333;  /* Dark text for better contrast */
+    color: #333;
 }
 
 .popup-content p {
-    font-size: 1.4rem;  /* Larger text for better readability */
+    font-size: 1.4rem;
     margin-bottom: 20px;
-    color: #555;  /* Softer color for text */
+    color: #555;
 }
 
 .popup-content button {
@@ -116,14 +116,14 @@ body {
     padding: 12px 24px;
     font-size: 18px;
     cursor: pointer;
-    background-color: #B0C4DE;  /* Light steel blue for a calm, harmonious look */
+    background-color: #B0C4DE;  /* Light steel blue */
     color: white;
     border: none;
     border-radius: 6px;
 }
 
 .popup-content button:hover {
-    background-color: #A0B9D3;  /* Slightly darker shade for hover effect */
+    background-color: #A0B9D3;  /* Slightly darker steel blue on hover */
 }
 
 .close {
@@ -132,5 +132,32 @@ body {
     top: 10px;
     right: 10px;
     cursor: pointer;
-    color: #888;  /* Soft close button color */
+    color: #888;
+}
+
+/* 帮助文档列表样式 */
+.help-list {
+    list-style: disc inside; /* 保留 bullet point，且将其放在列表内部 */
+    padding: 0;
+    margin: 0 auto; /* 列表整体居中 */
+    text-align: left; /* 文本居左显示 */
+    display: inline-block; /* 列表内容作为块级元素居中 */
+}
+
+.help-list li {
+    margin-bottom: 10px; /* 每个列表项增加间距 */
+    font-size: 1.2rem; /* 调整字体大小 */
+    line-height: 1.6; /* 调整行高 */
+    color: #333; /* 列表文字颜色 */
+}
+
+/* 文本框样式 */
+textarea {
+    width: 100%; /* 占满父容器宽度 */
+    height: 60px; /* 高度固定 */
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; /* 禁用调整大小 */
 }

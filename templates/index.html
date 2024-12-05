@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <!-- Outer container with a border -->
     <div class="outer-container">
         <div class="hero-container">
             <h1>欢迎来到音乐漂流瓶！</h1>
             <div class="button-container">
                 <button onclick="showSendBottlePopup()">丢瓶子</button>
                 <button onclick="pickBottle()">捡瓶子</button>
-                <button>帮助</button>
+                <button onclick="showHelpPopup()">帮助</button>
             </div>
 
             <!-- 捡瓶子的弹窗 -->
@@ -33,83 +32,50 @@
                 <div class="popup-content">
                     <span class="close" onclick="closePopup('send-popup')">&times;</span>
                     <h2>丢瓶子</h2>
-                    <form id="send-bottle-form" action="/send_bottle" method="POST">
+                    <form id="send-bottle-form">
                         <label for="song_name">歌曲名:</label>
                         <input type="text" id="song_name" name="song_name" required><br><br>
                         
                         <label for="artist_name">歌手名:</label>
                         <input type="text" id="artist_name" name="artist_name" required><br><br>
+
+                        <label for="mood">写下你此刻的心情 (50字以内):</label>
+                        <textarea id="mood" name="mood" maxlength="50" required></textarea><br><br>
                         
-                        <button type="submit">丢出瓶子</button>
+                        <button type="button" onclick="sendBottle()">丢出瓶子</button>
                     </form>
                 </div>
             </div>
 
+            <!-- 发送成功的弹窗 -->
+            <div id="success-popup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('success-popup')">&times;</span>
+                    <h2 id="success-message">瓶子已成功丢出！</h2>
+                    <button onclick="window.location.href='/'">回到主页</button>
+                    <button onclick="pickBottle()">捡瓶子</button>
+                </div>
+            </div>
+
+            <!-- 帮助弹窗 -->
+            <div id="help-popup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('help-popup')">&times;</span>
+                    <h2>使用帮助</h2>
+                    <p>欢迎使用音乐漂流瓶！</p>
+                    <p>您可以通过以下按钮体验功能：</p>
+                    <ul>
+                        <li><strong>丢瓶子：</strong>填写歌曲和歌手信息，将它漂流出去。</li>
+                        <li><strong>捡瓶子：</strong>捡到一首随机的歌曲，与音乐结缘。</li>
+                        <li><strong>帮助：</strong>查看如何使用这个应用。</li>
+                    </ul>
+                    <button onclick="closePopup('help-popup')">关闭</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // 显示“捡瓶子”的弹窗
-        function pickBottle() {
-            // 确保其他弹窗隐藏
-            closeAllPopups();
-
-            // 获取歌曲信息并显示弹窗
-            $.get("/pick_music", function(data) {
-                const songInfo = `${data.song_name} - ${data.artist_name}`;
-                document.getElementById("song-info").innerText = `歌曲: ${songInfo}`;
-                document.getElementById("pick-popup").style.display = "block";
-            });
-        }
-
-        // 显示“丢瓶子”的弹窗
-        function showSendBottlePopup() {
-            // 确保其他弹窗隐藏
-            closeAllPopups();
-
-            // 显示丢瓶子的弹窗
-            document.getElementById("send-popup").style.display = "block";
-        }
-
-        // 关闭单个弹窗
-        function closePopup(popupId) {
-            document.getElementById(popupId).style.display = "none";
-        }
-
-        // 关闭所有弹窗
-        function closeAllPopups() {
-            const popups = document.querySelectorAll(".popup");
-            popups.forEach(popup => popup.style.display = "none");
-        }
-
-    </script>
-
-    <!-- CSS 可以根据需要添加 -->
-    <style>
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            border-radius: 8px;
-            display: none; /* 默认隐藏 */
-        }
-        .popup-content {
-            text-align: center;
-        }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-    </style>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
