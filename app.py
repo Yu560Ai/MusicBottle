@@ -1,8 +1,36 @@
 from flask import Flask, render_template, request, jsonify
 import random
 import json
+import hashlib
 
 app = Flask(__name__)
+
+# 微信公众号验证接口
+@app.route('/wechat', methods=['GET', 'POST'])
+def wechat():
+    if request.method == 'GET':
+        # 验证微信服务器身份
+        token = 'leleyuhan2024'  # 与微信公众号后台配置的 Token 一致
+        signature = request.args.get('signature')
+        timestamp = request.args.get('timestamp')
+        nonce = request.args.get('nonce')
+        echostr = request.args.get('echostr')
+
+        # 验证签名
+        list_to_hash = [token, timestamp, nonce]
+        list_to_hash.sort()
+        hashcode = hashlib.sha1(''.join(list_to_hash).encode('utf-8')).hexdigest()
+
+        if hashcode == signature:
+            return echostr
+        else:
+            return "Verification failed", 403
+
+    elif request.method == 'POST':
+        # 处理用户消息（比如“捡瓶子”或“丢瓶子”）
+        data = request.data  # 接收微信推送的 XML 数据
+        # 解析 XML 并返回响应消息（后续实现）
+        return "success"
 
 # Load music data
 with open('music_data.json', 'r', encoding='utf-8') as f:
@@ -61,4 +89,4 @@ for rule in app.url_map.iter_rules():
     print(rule)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=80, debug=True)
