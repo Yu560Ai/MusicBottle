@@ -29,6 +29,7 @@ body {
     display: block;
 }
 
+
 /* Hero container background */
 .hero-container {
     position: relative;
@@ -38,116 +39,147 @@ body {
     background-size: cover;
     background-position: center;
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* 标题在上方 */
+    flex-direction: column; /* 元素垂直排列 */
+    align-items: center; /* 水平居中 */
+    justify-content: flex-start; /* 从上方开始排列 */
     text-align: center;
-    padding-top: 20px; /* 上方增加间距 */
-}
-
-/* General container styling */
-.hero-container {
-    text-align: center; /* 标题和按钮居中 */
-    margin-top: 20px; /* 与顶部保持距离 */
+    padding-top: 10%; /* 增加顶部间距，防止标题超出边框 */
+    box-sizing: border-box; /* 包含 padding 在宽高计算中 */
 }
 
 /* Title styling */
 .hero-container h1 {
-    font-size: 36px; /* 增大标题字体 */
+    font-size: 28px; /* 缩小标题字体大小以适配手机屏幕 */
     font-weight: bold; /* 加粗标题 */
-    color: #4fb7d3; /* 标题颜色，与背景图协调 */
-    margin-bottom: 30px; /* 标题和按钮之间的间距 */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 添加阴影以增强可读性 */
+    color: #ffffff; /* 使用白色以与背景图对比明显 */
+    margin: 0 20px 20px; /* 增加左右内边距避免靠近边框 */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* 加强阴影效果以提升可读性 */
 }
 
 /* Button container for alignment */
 .button-container {
     display: flex;
-    justify-content: center; /* 按钮水平居中 */
-    gap: 20px; /* 按钮之间的间距 */
+    flex-direction: column; /* 按钮垂直排列 */
+    align-items: center; /* 居中排列 */
+    gap: 15px; /* 按钮之间的间距 */
+    margin-top: 20px; /* 按钮距离标题的间距 */
 }
 
 /* Unified button styling */
 .button-container button {
-    padding: 15px 40px; /* 增大按钮的内边距 */
-    font-size: 18px; /* 提升字体大小 */
-    font-weight: bold; /* 加粗字体 */
-    background: linear-gradient(135deg, #98dfeb, #4fb7d3); /* 渐变背景，符合主题 */
-    color: #fff; /* 白色文字颜色 */
-    border: 3px solid #4fb7d3; /* 边框颜色 */
-    border-radius: 25px; /* 圆角按钮样式 */
-    cursor: pointer; /* 鼠标样式 */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 增加阴影效果 */
+    padding: 12px 35px; /* 缩小按钮的内边距以适配手机屏幕 */
+    font-size: 16px; /* 减小字体大小，适配移动端 */
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.8); /* 使用半透明白色背景与背景图协调 */
+    color: #4fb7d3; /* 字体颜色与主题一致 */
+    border: 2px solid #ffffff; /* 使用白色边框以突出按钮 */
+    border-radius: 20px; /* 保持圆角按钮样式 */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 轻微阴影，增加立体感 */
     transition: transform 0.2s ease, background 0.3s ease; /* 添加轻微动画 */
 }
 
-/* Button hover and active effects */
+/* Button hover and active effects (no hover for mobile, only active) */
 .button-container button:active {
-    transform: scale(0.95); /* 按下按钮时轻微缩小 */
+    transform: scale(0.95); /* 按下时轻微缩小 */
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .hero-container h1 {
+        font-size: 24px; /* 小屏幕上缩小标题 */
+    }
+
+    .button-container button {
+        padding: 10px 30px; /* 进一步缩小按钮尺寸 */
+        font-size: 14px; /* 更小的字体以适配屏幕 */
+    }
 }
 
 
 
 /* Popup styles */
 .popup {
-    display: none;  /* Hidden by default */
+    display: none; /* 默认隐藏 */
     position: fixed;
-    top: 50%;  /* Vertically centered */
-    left: 50%;  /* Horizontally centered */
-    transform: translate(-50%, -50%);  /* Adjust position */
-    width: 90%;  /* Flexible width */
-    max-width: 600px;  /* Limit maximum width */
-    background-color: rgba(0, 0, 0, 0.7);  /* Semi-transparent black */
-    z-index: 1000;  /* Above other content */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 确保完全居中 */
+    width: 90%; /* 弹窗宽度为屏幕的 90% */
+    max-width: 500px; /* 限制最大宽度 */
+    background-color: rgba(255, 255, 255, 0.85); /* 半透明白色背景 */
+    z-index: 1000; /* 层级高于其他内容 */
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;  /* Rounded corners */
+    border-radius: 16px; /* 圆角 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 增加阴影效果 */
+    overflow: hidden; /* 防止内容溢出 */
 }
 
+/* Popup content styles */
 .popup-content {
-    background-color: rgba(255, 255, 255, 0.9);  /* Slightly transparent white */
-    border-radius: 12px;  /* Rounded corners */
-    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.95); /* 稍微透明的白色 */
+    border-radius: 16px; /* 圆角与弹窗外层一致 */
+    padding: 20px;
     text-align: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 500px; /* 内容宽度与弹窗一致 */
+    color: #2c3e50; /* 深灰蓝色字体，柔和且清晰 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 为内容添加独立的阴影 */
 }
 
+/* Heading inside the popup */
 .popup-content h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #4fb7d3; /* 与整体主题色协调 */
+    font-weight: bold;
 }
 
+/* Paragraph inside the popup */
 .popup-content p {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #34495e; /* 深灰蓝色字体，易读性好 */
 }
 
+/* Buttons inside the popup */
 .popup-content button {
     margin: 10px;
     padding: 12px 24px;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
-    background-color: #B0C4DE;  /* Light steel blue */
+    background: linear-gradient(135deg, #98dfeb, #4fb7d3); /* 按钮渐变背景，契合主题 */
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px; /* 圆角 */
+    transition: background 0.3s ease, transform 0.2s ease; /* 添加交互效果 */
 }
 
 .popup-content button:hover {
-    background-color: #A0B9D3;  /* Slightly darker steel blue on hover */
+    background: linear-gradient(135deg, #4fb7d3, #98dfeb); /* 渐变色反转 */
 }
 
+.popup-content button:active {
+    transform: scale(0.95); /* 按下时轻微缩小 */
+}
+
+/* Close button styles */
 .close {
-    font-size: 2rem;
+    font-size: 1.8rem;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 12px;
     cursor: pointer;
     color: #888;
+    transition: color 0.3s ease;
 }
+
+.close:hover {
+    color: #4fb7d3; /* 鼠标悬停时与主题颜色一致 */
+}
+
 
 /* 帮助文档列表样式 */
 .help-list {
@@ -174,4 +206,27 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: none; /* 禁用调整大小 */
+}
+
+/* Adjust list alignment */
+.popup-content ul {
+    list-style: none; /* 移除默认的 bullet points */
+    padding: 0;
+    margin: 0;
+    text-align: left; /* 左对齐以便阅读 */
+    margin-left: 10%; /* 整体右移 */
+}
+
+/* Style list items for better readability */
+.popup-content ul li {
+    margin-bottom: 10px; /* 增加行间距 */
+    font-size: 16px; /* 调整字体大小 */
+    color: #34495e; /* 使用与其他文本一致的颜色 */
+    text-align: left; /* 左对齐以便更清晰的阅读 */
+}
+
+/* Style the strong elements in the list items */
+.popup-content ul li strong {
+    color: #4fb7d3; /* 使用主题蓝色突出关键部分 */
+    font-weight: bold;
 }
