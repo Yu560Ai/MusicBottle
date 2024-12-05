@@ -12,41 +12,104 @@
         <div class="hero-container">
             <h1>欢迎来到音乐漂流瓶！</h1>
             <div class="button-container">
-                <button onclick="window.location.href='/send_bottle_form'">丢瓶子</button>
+                <button onclick="showSendBottlePopup()">丢瓶子</button>
                 <button onclick="pickBottle()">捡瓶子</button>
                 <button>帮助</button>
             </div>
 
-            <!-- 弹窗 -->
-            <div id="popup" class="popup" style="display: none;">
+            <!-- 捡瓶子的弹窗 -->
+            <div id="pick-popup" class="popup" style="display: none;">
                 <div class="popup-content">
-                    <span class="close" onclick="closePopup()">&times;</span>
+                    <span class="close" onclick="closePopup('pick-popup')">&times;</span>
                     <h2>捡到一个瓶子！</h2>
                     <p id="song-info"></p>
-                    <button onclick="window.location.href='/send_bottle_form'">丢瓶子</button>
+                    <button onclick="showSendBottlePopup()">丢瓶子</button>
                     <button onclick="window.location.href='/'">返回主页</button>
                 </div>
             </div>
+
+            <!-- 丢瓶子的弹窗 -->
+            <div id="send-popup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('send-popup')">&times;</span>
+                    <h2>丢瓶子</h2>
+                    <form id="send-bottle-form" action="/send_bottle" method="POST">
+                        <label for="song_name">歌曲名:</label>
+                        <input type="text" id="song_name" name="song_name" required><br><br>
+                        
+                        <label for="artist_name">歌手名:</label>
+                        <input type="text" id="artist_name" name="artist_name" required><br><br>
+                        
+                        <button type="submit">丢出瓶子</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        // 显示“捡瓶子”的弹窗
         function pickBottle() {
-            // Make an AJAX GET request to get the song data
+            // 确保其他弹窗隐藏
+            closeAllPopups();
+
+            // 获取歌曲信息并显示弹窗
             $.get("/pick_music", function(data) {
-                // Dynamically update the song information in the popup
                 const songInfo = `${data.song_name} - ${data.artist_name}`;
                 document.getElementById("song-info").innerText = `歌曲: ${songInfo}`;
-
-                // Show the popup
-                document.getElementById("popup").style.display = "block";
+                document.getElementById("pick-popup").style.display = "block";
             });
         }
 
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
+        // 显示“丢瓶子”的弹窗
+        function showSendBottlePopup() {
+            // 确保其他弹窗隐藏
+            closeAllPopups();
+
+            // 显示丢瓶子的弹窗
+            document.getElementById("send-popup").style.display = "block";
         }
+
+        // 关闭单个弹窗
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = "none";
+        }
+
+        // 关闭所有弹窗
+        function closeAllPopups() {
+            const popups = document.querySelectorAll(".popup");
+            popups.forEach(popup => popup.style.display = "none");
+        }
+
     </script>
+
+    <!-- CSS 可以根据需要添加 -->
+    <style>
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-radius: 8px;
+            display: none; /* 默认隐藏 */
+        }
+        .popup-content {
+            text-align: center;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+    </style>
 </body>
 </html>
