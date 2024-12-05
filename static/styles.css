@@ -34,44 +34,52 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url('/static/bottle.jpg');
+    background-image: url('/static/bottle.jpg'); /* 替换为你的背景图路径 */
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end; /* 按钮稍微靠下 */
     text-align: center;
+    padding-bottom: 80px; /* 给按钮和底部增加一些间距 */
 }
 
-/* Button container and buttons */
+/* Button container styles */
 .button-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
 }
 
+/* Button styles */
 .button-container button {
-    padding: 15px 25px;
-    font-size: 20px;
-    background-color: rgba(255, 255, 255, 0.7); /* Original style */
-    color: #333;  /* Soft dark text color for contrast */
-    border: 2px solid rgba(255, 255, 255, 0.7); /* Match the button's background */
-    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(200, 230, 255, 0.9)); /* 清新渐变背景 */
+    color: #2a6f97; /* 柔和的深蓝绿色 */
+    border: 2px solid rgba(200, 230, 255, 0.8); /* 边框颜色与背景匹配 */
+    border-radius: 25px;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 轻柔阴影 */
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Button hover effects */
 .button-container button:hover {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly brighter hover background */
-    color: #000;  /* Darker text on hover */
-    transform: scale(1.05);  /* Subtle scale effect */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(200, 250, 255, 1)); /* 更亮的渐变 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 增加阴影 */
+    transform: translateY(-3px); /* 悬停时轻微向上移动 */
 }
 
+/* Button active effects */
 .button-container button:active {
-    background-color: rgba(200, 200, 200, 0.9); /* Softer pressed effect */
-    color: #222; /* Slightly darker text when pressed */
+    background: linear-gradient(135deg, rgba(180, 210, 230, 0.9), rgba(200, 230, 250, 1)); /* 按下时略深的背景 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 阴影减弱 */
+    transform: translateY(2px); /* 按下时略微下移 */
 }
+
 
 /* Popup styles */
 .popup {
