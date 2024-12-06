@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳转到 QQ 音乐</title>
+    <script>
+        window.onload = function() {
+            // 构造深度链接
+            const songInfo = new URLSearchParams(window.location.search).get('key');
+            const appLink = `qqmusic://search?key=${encodeURIComponent(songInfo)}`;
+            
+            // 尝试唤起 QQ 音乐 App
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = appLink;
+            document.body.appendChild(iframe);
+
+            // 延迟提示用户
+            setTimeout(() => {
+                alert("如未跳转，请手动打开 QQ 音乐 App 或安装后重试。");
+            }, 2000);
+        };
+    </script>
+</head>
+<body>
+    <p>正在尝试跳转到 QQ 音乐 App...</p>
+</body>
+</html>

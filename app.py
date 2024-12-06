@@ -3,8 +3,55 @@ import random
 import json
 import hashlib
 import os
+# import requests
+# from bs4 import BeautifulSoup
 
 app = Flask(__name__)
+
+@app.route('/redirect_to_qqmusic')
+def redirect_to_qqmusic():
+    song_name = request.args.get('song_name', '')
+    artist_name = request.args.get('artist_name', '')
+
+    # 构造搜索链接
+    search_url = f"https://y.qq.com/n/ryqq/search?w={song_name} {artist_name}"
+    return render_template('redirect.html', search_url=search_url)
+
+# @app.route('/get_song_id', methods=['GET'])
+# def get_song_id():
+#     song_name = request.args.get('song_name')
+#     artist_name = request.args.get('artist_name')
+#     if not song_name or not artist_name:
+#         return jsonify({"error": "缺少歌曲名或歌手名"}), 400
+
+#     # 构造搜索 URL
+#     search_url = f"https://y.qq.com/n/ryqq/search?w={song_name} {artist_name}"
+#     headers = {
+#         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
+#         "Referer": "https://y.qq.com/",
+#         "Accept-Language": "zh-CN,zh;q=0.9",
+#         "Accept-Encoding": "gzip, deflate, br"
+#     }
+
+#     try:
+#         response = requests.get(search_url, headers=headers)
+#         if response.status_code != 200:
+#             return jsonify({"error": f"无法访问 QQ 音乐搜索页面，状态码: {response.status_code}"}), 500
+
+#         # 使用 BeautifulSoup 解析 HTML
+#         soup = BeautifulSoup(response.text, 'html.parser')
+#         song_link = soup.find('a', {'class': 'js_song'})  # 找到第一首歌曲链接
+#         if not song_link:
+#             return jsonify({"error": "未找到相关歌曲"}), 404
+
+#         # 提取 songID
+#         song_id = song_link['href'].split('/')[-1]
+#         return jsonify({"song_id": song_id})
+
+#     except Exception as e:
+#         return jsonify({"error": f"获取歌曲信息时发生错误: {str(e)}"}), 500
+
+
 
 # 微信公众号验证接口
 @app.route('/wechat', methods=['GET', 'POST'])
@@ -88,7 +135,7 @@ def send_bottle():
             json.dump(music_data, f, indent=4, ensure_ascii=False)
 
     # 添加心情到 mood_data
-    mood_data.append(mood)
+    mood_data.append({'mood': mood,'song_name': song_name, 'artist_name': artist_name})
 
     # 写入到 mood.json
     with open(mood_file, 'w', encoding='utf-8') as f:
@@ -110,3 +157,4 @@ for rule in app.url_map.iter_rules():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)
+

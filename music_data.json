@@ -1,64 +1,82 @@
 [
     {
-        "song_name": "Blinding Lights",
-        "artist_name": "The Weeknd",
-        "music_link": "https://y.qq.com/n/yqq/song/003ilw0D0pKf7z.html"
-    },
-    {
-        "song_name": "Levitating",
-        "artist_name": "Dua Lipa",
-        "music_link": "https://y.qq.com/n/yqq/song/003C0IKx2Xx1jl.html"
-    },
-    {
-        "song_name": "Shape of You",
-        "artist_name": "Ed Sheeran",
-        "music_link": "https://y.qq.com/n/yqq/song/002TNiP10R01Er.html"
-    },
-    {
-        "song_name": "Peaches",
-        "artist_name": "Justin Bieber",
-        "music_link": "https://y.qq.com/n/yqq/song/003g6KhY3Ge4Qv.html"
-    },
-    {
-        "song_name": "Good 4 U",
-        "artist_name": "Olivia Rodrigo",
-        "music_link": "https://y.qq.com/n/yqq/song/004d5oFq3ZBhdV.html"
-    },
-    {
-        "song_name": "Stay",
-        "artist_name": "The Kid LAROI, Justin Bieber",
-        "music_link": "https://y.qq.com/n/yqq/song/0030JfMh3p0bVA.html"
-    },
-    {
-        "song_name": "Montero (Call Me By Your Name)",
-        "artist_name": "Lil Nas X",
-        "music_link": "https://y.qq.com/n/yqq/song/00280IVC0pP5eO.html"
-    },
-    {
-        "song_name": "Kiss Me More",
-        "artist_name": "Doja Cat ft. SZA",
-        "music_link": "https://y.qq.com/n/yqq/song/003RxfAa0hVZvD.html"
-    },
-    {
-        "song_name": "Save Your Tears",
-        "artist_name": "The Weeknd",
-        "music_link": "https://y.qq.com/n/yqq/song/004YlCoS2p8eVO.html"
-    },
-    {
-        "song_name": "Industry Baby",
-        "artist_name": "Lil Nas X ft. Jack Harlow",
-        "music_link": "https://y.qq.com/n/yqq/song/003W1IYr3nB2Db.html"
-    },
-    {
-        "song_name": "Yellow",
-        "artist_name": "Coldplay"
-    },
-    {
-        "song_name": "我爱他",
-        "artist_name": "丁当"
-    },
-    {
         "song_name": "星晴",
+        "artist_name": "周杰伦"
+    },
+    {
+        "song_name": "稻香",
+        "artist_name": "周杰伦"
+    },
+    {
+        "song_name": "告白气球",
+        "artist_name": "周杰伦"
+    },
+    {
+        "song_name": "晴天",
+        "artist_name": "周杰伦"
+    },
+    {
+        "song_name": "小幸运",
+        "artist_name": "田馥甄"
+    },
+    {
+        "song_name": "平凡之路",
+        "artist_name": "朴树"
+    },
+    {
+        "song_name": "成都",
+        "artist_name": "赵雷"
+    },
+    {
+        "song_name": "南山南",
+        "artist_name": "马頔"
+    },
+    {
+        "song_name": "年少有为",
+        "artist_name": "李荣浩"
+    },
+    {
+        "song_name": "红色高跟鞋",
+        "artist_name": "蔡健雅"
+    },
+    {
+        "song_name": "演员",
+        "artist_name": "薛之谦"
+    },
+    {
+        "song_name": "以父之名",
+        "artist_name": "周杰伦"
+    },
+    {
+        "song_name": "光年之外",
+        "artist_name": "邓紫棋"
+    },
+    {
+        "song_name": "喜欢你",
+        "artist_name": "邓紫棋"
+    },
+    {
+        "song_name": "告别青春",
+        "artist_name": "许巍"
+    },
+    {
+        "song_name": "突然好想你",
+        "artist_name": "五月天"
+    },
+    {
+        "song_name": "知足",
+        "artist_name": "五月天"
+    },
+    {
+        "song_name": "倔强",
+        "artist_name": "五月天"
+    },
+    {
+        "song_name": "我爱你中国",
+        "artist_name": "王菲"
+    },
+    {
+        "song_name": "青花瓷",
         "artist_name": "周杰伦"
     }
 ]

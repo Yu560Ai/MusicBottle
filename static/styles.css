@@ -208,25 +208,39 @@ textarea {
     resize: none; /* 禁用调整大小 */
 }
 
-/* Adjust list alignment */
-.popup-content ul {
-    list-style: none; /* 移除默认的 bullet points */
+/* 弹窗样式 */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: white;
+    z-index: 1000;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup-content {
+    text-align: center;
     padding: 0;
     margin: 0;
-    text-align: left; /* 左对齐以便阅读 */
-    margin-left: 10%; /* 整体右移 */
 }
 
-/* Style list items for better readability */
-.popup-content ul li {
-    margin-bottom: 10px; /* 增加行间距 */
-    font-size: 16px; /* 调整字体大小 */
-    color: #34495e; /* 使用与其他文本一致的颜色 */
-    text-align: left; /* 左对齐以便更清晰的阅读 */
-}
-
-/* Style the strong elements in the list items */
-.popup-content ul li strong {
-    color: #4fb7d3; /* 使用主题蓝色突出关键部分 */
+#song-info {
+    font-size: 16px;
     font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
 }
+
+.popup-content p {
+    font-size: 14px;
+    color: gray;
+    margin-top: 5px;
+}
+

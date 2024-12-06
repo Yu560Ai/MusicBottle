@@ -18,15 +18,105 @@
             </div>
 
             <!-- 捡瓶子的弹窗 -->
-            <div id="pick-popup" class="popup" style="display: none;">
+            <!-- <div id="pick-popup" class="popup" style="display: none;">
                 <div class="popup-content">
                     <span class="close" onclick="closePopup('pick-popup')">&times;</span>
                     <h2>捡到一个瓶子！</h2>
                     <p id="song-info"></p>
+
                     <button onclick="showSendBottlePopup()">丢瓶子</button>
                     <button onclick="window.location.href='/'">返回主页</button>
                 </div>
+            </div> -->
+            
+            <!-- 捡瓶子的弹窗 -->
+            <!-- <div id="pick-popup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('pick-popup')">&times;</span>
+                    <h2>捡到一个瓶子！</h2>
+                    <p id="song-info"></p>
+                    <p id="song-link"></p> 
+                    
+                    <button onclick="showSendBottlePopup()">丢瓶子</button>
+                    <button onclick="window.location.href='/'">返回主页</button>
+                </div>
+            </div> -->
+
+            <!-- 捡瓶子的弹窗 -->
+            <!-- <div id="pick-popup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('pick-popup')">&times;</span>
+                    <h2>捡到一个瓶子！</h2>
+                    <p id="song-info"></p> 
+                    <iframe 
+                        id="music-player" 
+                        src="" 
+                        width="100%" 
+                        height="300px" 
+                        frameborder="0" 
+                        allowfullscreen>
+                    </iframe>
+                    <button onclick="window.location.href='/'">返回主页</button>
+                </div>
+            </div> -->
+
+        <!-- 捡瓶子的弹窗 -->
+        <!-- <div id="pick-popup" class="popup" style="display: none;">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup('pick-popup')">&times;</span>
+                <h2>捡到一个瓶子！</h2>
+                <p id="song-info"></p> 
+                <iframe 
+                    id="music-player" 
+                    src="" 
+                    width="100%" 
+                    height="300px" 
+                    frameborder="0" 
+                    allowfullscreen>
+                </iframe>
+                <button onclick="window.location.href='/'">返回主页</button>
             </div>
+        </div> -->
+
+
+        <!-- <div id="pick-popup" class="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup('pick-popup')">&times;</span>
+                <h2>捡到一个瓶子！</h2>
+                <p id="song-info">这里是歌曲信息</p>
+                <p>（复制后点击“去听音乐”）</p>
+                <button onclick="redirectToQQMusic(document.getElementById('song-info').innerText)">去听音乐</button>
+                <button onclick="window.location.href='/'">返回主页</button>
+            </div>
+        </div> -->
+
+
+            <!-- 捡瓶子弹窗 -->
+            <!-- <div id="pick-popup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('pick-popup')">&times;</span>
+                    <h2>捡到一个瓶子！</h2>
+                    <p id="song-info"></p> 
+                    <button id="music-button">去听音乐</button> 
+                    <button onclick="window.location.href='/'">返回主页</button>
+                </div>
+            </div> -->
+
+            <!-- 捡瓶子弹窗 -->
+            <div id="pick-popup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('pick-popup')">&times;</span>
+                    <h2>捡到一个瓶子！</h2>
+                    <p id="song-info">这里是歌曲信息</p> <!-- 显示歌曲信息 -->
+                    <p style="font-size: 14px; color: gray;">请复制以上歌曲信息到音乐播放器搜索。</p> <!-- 提示用户复制 -->
+                    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;">
+                        <button onclick="showSendBottlePopup()">丢瓶子</button>
+                        <button onclick="window.location.href='/'">返回主页</button>
+                    </div>
+                </div>
+            </div>
+        
+        
 
             <!-- 丢瓶子的弹窗 -->
             <div id="send-popup" class="popup" style="display: none;">
@@ -66,9 +156,8 @@
                     <p>欢迎使用音乐漂流瓶！</p>
                     <p>您可以通过以下按钮体验功能：</p>
                     <ul>
-                        <li><strong>丢瓶子：</strong>填写歌曲和歌手信息，将它漂流出去。</li>
-                        <li><strong>捡瓶子：</strong>捡到一首随机的歌曲，与音乐结缘。</li>
-                        <li><strong>帮助：</strong>查看如何使用这个应用。</li>
+                        <li><strong>丢瓶子：</strong>填写歌曲和歌手信息，并写下你此刻的心情，将它漂流出去。</li>
+                        <li><strong>捡瓶子：</strong>捡到一首漂流瓶中的歌曲。</li>
                     </ul>
                     <button onclick="closePopup('help-popup')">关闭</button>
                 </div>
