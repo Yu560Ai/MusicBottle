@@ -118,9 +118,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-### 📬 Contact
-
-For questions or suggestions, feel free to open an issue or reach out to the maintainer at  
-**dunyinzhang@gmail.com**  
-
 Enjoy the music! 🎵
